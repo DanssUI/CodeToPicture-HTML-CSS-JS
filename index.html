@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#FFF">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" />
+  <title>CodeToPic</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="content-holder">
+      <div class="content">
+        <span class="wh-fix"></span>
+        <div class="oi-holder">
+          <!-- Shadow Bugs, Not working for now
+          <div class="shadow"></div> -->
+          <div class="header">
+            <input id="title" type="text" placeholder="Title">
+            <div class="circle">
+              <span class="cred"></span>
+              <span class="cora"></span>
+              <span class="cgre"></span>
+            </div>
+          </div>
+          <div class="io">
+            <pre id="output-pre"><div class="filler"></div><div id="output" class="js"></div></pre>
+            <textarea id="input" oninput="update()" onfocus="this.select()">//Code Here</textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="export-drop">
+      <h1 style="font-family: 'PoppinsSb'">Export</h1>
+      <span class="closebtn" onclick="ocExport(1)">&times;</span>
+      
+      <div class="filename">
+        <input type="text" placeholder="codetopic" oninput="fileName = this.value">
+      </div>
+      
+      <div class="quality">
+        <button>4</button>
+        <button>6</button>
+        <button>8</button>
+        <button>10</button>
+      </div>
+      
+      <div class="format">
+        <button>png</button>
+        <button>jpg</button>
+        <button>jpeg</button>
+      </div>
+      
+      <button class="exportbtn" onclick="exportImg();">Export</button>
+    </div>
+    
+    <div class="topnav">
+      <h1>CodeToPic</h1>  
+      <div class="action">
+        <a href="https://github.com/DanssUI" target="_blank"><button>Github</button></a>
+        <button onclick="ocExport(0);">Export</button>
+      </div>
+    </div>
+    
+    <div class="set-form">
+      <h3 style="font-family: 'PoppinsR'">SETTING</h3>
+      
+      <div class="set-holder">
+        <div class="hl-content">
+          <button>androidstudio</button>
+          <button>dark</button>
+          <button>devibeans</button>
+          <button>felipec</button>
+          <button>github-dark</button>
+          <button>monokai</button>
+          <button>stackoverflow-dark</button>
+          <button>tokyo-night-dark</button>
+        </div>
+        
+        <div class="bg-content">
+          <button>Violet</button>
+          <button>Ocean</button>
+          <button>Warm</button>
+          <button>Sunset</button>
+          <button>Sky</button>
+          <button>Dark</button>
+          <button>Light</button>
+          <button>Transparant</button>
+        </div>
+        
+        <div class="lang-content">
+          <button>HTML</button>
+          <button>CSS</button>
+          <button>JavaScript</button>
+          <button>PHP</button>
+          <button>Java</button>
+          <button>Django</button>
+          <button>C</button>
+          <button>C++</button>
+          <button>C#</button>
+          <button>GO</button>
+          <button>Python</button>
+          <button>SQL</button>
+          <button>Dart</button>
+          <button>JSON</button>
+          <button>Rust</button>
+          <button>Ruby</button>
+        </div>        
+        
+        <div class="pad-content">
+          <button>20</button>
+          <button>40</button>
+          <button>60</button>
+        </div>
+
+        <div class="font-content">
+          <button>9</button>
+          <button>10</button>
+          <button>11</button>
+          <button>12</button>
+          <button>13</button>
+          <button>14</button>
+          <button>15</button>
+          <button>16</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="script.js" type="text/javascript" charset="utf-8"></script>
+<script src="highlight/highlight.min.js" charset="utf-8"></script>
+<script src="capturer.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+  let input = document.querySelector("#input");
+  const output = document.querySelector("#output");
+
+  hljs.highlightElement(output);
+
+  update();
+  function update() {
+    output.textContent = input.value;
+    hljs.highlightElement(output);
+    updateRect();
+  }
+</script>
+
+<link id="theme" rel="stylesheet" href="highlight/styles/tokyo-night-dark.min.css">
+
+</html>

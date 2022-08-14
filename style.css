@@ -1,0 +1,736 @@
+@font-face{
+  font-family: 'JetBrains';
+  src: url("font/JetBrainsMono.ttf") format("truetype");
+}
+@font-face{
+  font-family: 'Ubuntu';
+  src: url("font/UbuntuMono.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'PoppinsSb';
+  src: url("font/Poppins-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'PoppinsR';
+  src: url("font/Poppins-Regular.ttf") format("truetype");
+}
+
+:root{
+  --contentMargin: 5%;
+  --contentColor: #2F283F;
+}
+
+*{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html{
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+body{
+  width: 100%;
+  height: 100%;
+  background-image: url("img/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: scroll;
+}
+
+.topnav{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  z-index: 200;
+}
+
+.topnav h1{
+  font-family: "PoppinsSb";
+  font-size: 2rem;
+  margin-left: 4%;
+}
+
+.topnav .action{
+  margin-right: 4%;
+}
+
+.topnav div button:nth-child(1){
+  border: 1px solid var(--contentColor);
+  border-radius: 10px;
+  padding: 10px;
+  background: none;
+  font-weight: bolder;
+}
+
+.topnav div button:nth-child(2) {
+  border: 1px solid var(--contentColor);
+  border-radius: 10px;
+  padding: 10px;
+  background: rgb(150,93,233);
+  color: white;
+  font-weight: bolder;
+}
+
+.content-holder{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content{
+  width: 80%;
+  height: auto;
+  background: linear-gradient(83.2deg, rgba(150,93,233,1) 10.8%, rgba(99,88,238,1) 94.3%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative; 
+}
+
+.wh-fix{
+  width: 102%;
+  height: 102%;
+  background: inherit;
+  position: absolute;
+}
+
+.oi-holder{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: auto;
+  flex-direction: column;
+  margin: 5%;
+}
+
+.header{
+  position: relative;
+  width: 100%;
+  height: 2.5em;
+  background-color: var(--contentColor);
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle{
+  position: absolute;
+  left: 2.5%;
+  display: flex;
+  width: 4rem;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.cred{
+  width: .7em;
+  height: .7em;
+  background: #ED5565;
+  border-radius: 50%;
+}
+
+.cora {
+  width: .7em;
+  height: .7em;
+  background: #FFCE54;
+  border-radius: 50%;
+}
+
+.cgre {
+  width: .7em;
+  height: .7em;
+  background: #48CFAD;
+  border-radius: 50%;
+}
+
+#title{
+  position: absolute;
+  font-size: 1rem;
+  font-family: 'Ubuntu';  
+  background: transparent;
+  outline: none;
+  border: none;
+  color: lightgray;
+  height: 1em;
+  text-align: center;
+  top: 30%;
+}
+
+#title::placeholder{
+  color: lightgray;
+}
+
+.io{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  padding-right: var(--contentMargin);
+  padding-left: var(--contentMargin);
+  background-color: var(--contentColor);
+	border-radius: 0 0 10px 10px;
+}
+
+#input{
+  position: absolute;
+  height: 100%;
+  width: calc(100% - ( 2 * var(--contentMargin)));
+  background: transparent;
+  color: transparent;
+  outline: none;
+  border: none;
+  caret-color: red;
+	font-family: 'JetBrains';
+	z-index: 100;
+  font-size: 12px;
+  text-size-adjust: none;
+  resize: none;
+}
+
+#input::selection{
+  color: red;
+}
+
+#output-pre{
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-grow: 1;
+  z-index: 1;
+  resize: none;
+}
+
+#output{
+  position: absolute;
+	width: 100%;
+	height: auto;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	font-size: 12px;
+	background-color: var(--contentColor);
+	font-family: 'JetBrains';
+	z-index: 100;
+}
+
+.filler{
+  width: 100%;
+  height: 3em;
+}
+
+.shadow{
+  position: absolute;
+  width: 117%;
+  height: 118%;
+  z-index: 1000;
+  opacity: 0.3;
+  background-image: url(img/shadow.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0;
+  display: none;
+}
+
+.set-form{
+  position: fixed;
+  width: 100%;
+  height: 2em;
+  bottom: 0;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 30px 30px 0 0;
+  transition: 400ms;
+  background: rgba( 255, 255, 255, 0.7 ); box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  border-radius: 30px 30px 0 0;
+  z-index: 200;
+}
+
+.set-form:hover{
+  height: 20em;
+}
+
+.set-form:hover .set-holder{
+  display: flex;
+}
+
+.set-form h3{
+  position: absolute;
+  top: 7px;
+}
+
+.set-holder{
+  width: 100%;
+  height: 90%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  overflow-x: scroll;
+  padding: 10% 0 0 0;
+}
+
+/* Drop Downs */
+
+[class*="content"], [class*="content"] button{
+  font-family: "PoppinsR";
+}
+
+.hl-content{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  padding: 3%;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+  border-radius: 0 10px 10px 10px;
+  width: 90%;
+  margin-top: .5em;
+}
+
+.hl-content::before{
+  content: "Highlighter";
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  background: white;
+  padding: 1% 3% 1% 3%;
+  border-radius: 5px 5px 0 0;
+  font-weight: bold;
+}
+
+.hl-content button{
+  padding: 5px;
+  border: 2px solid blue;
+  background: white;
+  border-radius: 5px;
+  flex-grow: 1;
+  margin: 3px;
+}
+
+.hl-content button:focus{
+  background-color: cyan;
+}
+
+.bg-content {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  padding: 3%;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+  border-radius: 0 10px 10px 10px;
+  width: 90%;
+  margin-top: 3em;
+}
+
+.bg-content::before {
+  content: "Background";
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  background: white;
+  padding: 1% 3% 1% 3%;
+  border-radius: 5px 5px 0 0;
+  font-weight: bold;
+}
+
+.bg-content button {
+  padding: 5px;
+  border: 2px solid blueviolet;
+  background: white;
+  border-radius: 5px;
+  flex-grow: 1;
+  margin: 3px;
+}
+
+.bg-content button:focus {
+  background-color: violet;
+}
+
+.lang-content {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  padding: 3%;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+  border-radius: 0 10px 10px 10px;
+  width: 90%;
+  margin-top: 3em;
+}
+
+.lang-content::before {
+  content: "Language";
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  background: white;
+  padding: 1% 3% 1% 3%;
+  border-radius: 5px 5px 0 0;
+  font-weight: bold;
+}
+
+.lang-content button{
+  padding: 5px;
+  border: 2px solid orangered;
+  background: white;
+  border-radius: 5px;
+  flex-grow: 1;
+  margin: 3px;
+}
+
+.lang-content button:focus {
+  background-color: lightcoral;
+}
+
+.pad-content {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  padding: 3%;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+  border-radius: 0 10px 10px 10px;
+  width: 90%;
+  margin-top: 3em;
+}
+
+.pad-content::before {
+  content: "Padding";
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  background: white;
+  padding: 1% 3% 1% 3%;
+  border-radius: 5px 5px 0 0;
+  font-weight: bold;
+}
+
+.pad-content button{
+  padding: 5px;
+  border: 2px solid greenyellow;
+  background: white;
+  border-radius: 5px;
+  flex-grow: 1;
+  margin: 3px;
+}
+
+.pad-content button:focus {
+  background-color: palegreen;
+}
+
+.font-content {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  padding: 3%;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+  border-radius: 0 10px 10px 10px;
+  width: 90%;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.font-content::before {
+  content: "Font Size";
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  background: white;
+  padding: 1% 3% 1% 3%;
+  border-radius: 5px 5px 0 0;
+  font-weight: bold;
+}
+
+.font-content button{
+  padding: 5px;
+  border: 2px solid hotpink;
+  background: white;
+  border-radius: 5px;
+  flex-grow: 1;
+  margin: 3px;
+}
+
+.font-content button:focus {
+  background-color: pink;
+}
+
+.export-drop{
+  position: absolute;
+  height: 25em;
+  width: 20em;
+  display: none;
+  flex-direction: column;
+  background-color: orange;
+  z-index: 300;
+  background: rgba( 255, 255, 255, 0.7 ); box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur(3px);
+  border-radius: 30px;  
+  padding: 5%;
+}
+
+.exportbtn{
+  width: 100%;
+  height: 10%;
+  background: rgb(150, 93, 233);
+  color: white;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid black;
+  font-weight: bolder;
+}
+
+.closebtn{
+  position: absolute;
+  font-size: 3em;
+  right: 5%;
+  top: 2.5%;
+}
+
+.filename {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  padding: 3%;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.4);
+  border-radius: 0 10px 10px 10px;
+  width: 100%;
+  margin-top: 2em;
+  margin-bottom: 1.3em;
+}
+
+.filename input{
+  font-size: 1.2em;
+  font-family: 'PoppinsR';
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.filename::before {
+  content: "File Name";
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  background: white;
+  padding: 1% 3% 1% 3%;
+  border-radius: 5px 5px 0 0;
+  font-weight: bold;
+  font-family: "PoppinsR";  
+}
+
+.filename button {
+  padding: 5px;
+  border: 2px solid hotpink;
+  background: white;
+  border-radius: 5px;
+  flex-grow: 1;
+  margin: 3px;
+}
+
+.filename button:focus {
+  background-color: pink;
+}
+
+.quality {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  padding: 3%;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.4);
+  border-radius: 0 10px 10px 10px;
+  width: 100%;
+  margin-top: 1.3em;
+  margin-bottom: 1.3em;
+}
+
+.quality::before {
+  content: "Quality";
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  background: white;
+  padding: 1% 3% 1% 3%;
+  border-radius: 5px 5px 0 0;
+  font-weight: bold;
+  font-family: "PoppinsR";
+}
+
+.quality button {
+  padding: 5px;
+  border: 2px solid hotpink;
+  background: white;
+  border-radius: 5px;
+  flex-grow: 1;
+  margin: 3px;
+}
+
+.quality button:focus {
+  background-color: pink;
+}
+
+.format {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  padding: 3%;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.4);
+  border-radius: 0 10px 10px 10px;
+  width: 100%;
+  margin-top: 1.3em;
+  margin-bottom: 1.3em;
+}
+
+.format::before {
+  content: "Format File";
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  background: white;
+  padding: 1% 3% 1% 3%;
+  border-radius: 5px 5px 0 0;
+  font-weight: bold;
+  font-family: "PoppinsR";
+}
+
+.format button {
+  padding: 5px;
+  border: 2px solid blue;
+  background: white;
+  border-radius: 5px;
+  flex-grow: 1;
+  margin: 3px;
+}
+
+.format button:focus {
+  background-color: cyan;
+}
+
+@media only screen and (min-width: 960px){
+ .topnav{
+   height: 6rem;
+ }
+ 
+ .topnav h1{
+   font-size: 4em;
+ }
+ 
+ .topnav div{
+   width: 30%;
+   display: flex;
+   justify-content: center;
+   gap: 5%;
+ }
+ 
+ .topnav div button{
+   width: 40%;
+   font-size: 1.3em;
+ }
+ 
+ .topnav div a button{
+   width: 125px;
+ }
+ 
+ .io{
+   border-radius: 0 0 20px 20px;
+ }
+ 
+ .set-form{
+   width: 80%;
+   height: 4em;
+ }
+ 
+ .set-form h3{
+   top: .25em;
+   font-size: 2.5em;
+ }
+ 
+ .set-form:hover {
+   height: 30em;
+ }
+ 
+ .set-holder{
+   height: 85%;
+   padding-top: 5%;
+ }
+ 
+ .header{
+   height: 6em;
+   border-radius: 20px 20px 0 0;
+ }
+ 
+ .circle{
+   width: 10em;
+   gap: 18px;
+   left: 4%;
+ }
+ 
+ .circle span{
+   width: 1.8em;
+   height: 1.8em;
+ }
+ 
+ #title{
+   font-size: 2em;
+ }
+ 
+ #input{
+   font-size: 30px;
+ }
+ 
+ #output{
+   font-size: 28px;
+ }
+ 
+ .filler{
+   height: 6em;
+ }
+ 
+ [class*="content"] button{
+   font-size: 1.5em;
+ }
+ 
+ .export-drop{
+   width: 50em;
+   height: 55em;
+   justify-content: center;
+   gap: 3em;
+ }
+ 
+}
