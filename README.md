@@ -1,4 +1,5 @@
 # CodeToPicture-HTML-CSS-JS
+![Thumbnail](img/20220814_201711.png)
 Convert code to beautiful image.<br>
 ### Features:
 - Live Highlighting
